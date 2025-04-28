@@ -1,2 +1,2 @@
 // src/index.js
-export { default as DragableContainer } from './components/DragableContainer';
+export { default as DraggableContainer } from './components/DraggableContainer';

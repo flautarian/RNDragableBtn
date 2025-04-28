@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import DragableContainer from '../src/components/DragableContainer';
+import DraggableContainer from '../src/components/DraggableContainer';
 import { Text } from 'react-native';
 
 // Mock the onSelect and onDelete functions
@@ -10,7 +10,7 @@ const mockOnDelete = jest.fn();
 describe('DragableContainer', () => {
   it('renders correctly', () => {
     const { getByText, getByTestId } = render(
-      <DragableContainer
+      <DraggableContainer
         x={0}
         y={0}
         height={100}
@@ -23,7 +23,7 @@ describe('DragableContainer', () => {
         onDelete={mockOnDelete}
       >
         <Text testID="child">Child Component</Text>
-      </DragableContainer>
+      </DraggableContainer>
     );
 
     // Check if the child component is rendered
@@ -32,7 +32,7 @@ describe('DragableContainer', () => {
 
   it('calls onSelect when pressed', () => {
     const { getByText } = render(
-      <DragableContainer
+      <DraggableContainer
         x={0}
         y={0}
         height={100}
@@ -45,7 +45,7 @@ describe('DragableContainer', () => {
         onDelete={mockOnDelete}
       >
         <Text>Child Component</Text>
-      </DragableContainer>
+      </DraggableContainer>
     );
 
     // Simulate a press event
@@ -57,7 +57,7 @@ describe('DragableContainer', () => {
 
   it('calls onDelete when delete button is pressed', () => {
     const { getByTestId } = render(
-      <DragableContainer
+      <DraggableContainer
         x={0}
         y={0}
         height={100}
@@ -70,7 +70,7 @@ describe('DragableContainer', () => {
         onDelete={mockOnDelete}
       >
         <Text>Child Component</Text>
-      </DragableContainer>
+      </DraggableContainer>
     );
 
     // Simulate a press event on the delete button

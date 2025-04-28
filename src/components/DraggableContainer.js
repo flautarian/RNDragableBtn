@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, PanResponder, Pressable, Dimensions, StyleSheet } from 'react-native';
 import { Move, RotateCcw, Trash2 } from "react-native-feather";
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
-const DragableContainer = (
+const DraggableContainer = (
   {
     x,
     y,
@@ -371,4 +371,4 @@ const DragableContainer = (
   );
 };
 
-export default DragableContainer;
+export default DraggableContainer;

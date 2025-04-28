@@ -1,9 +1,10 @@
 {
-  "name": "react-native-dragable-container",
+  "name": "react-native-draggable-container",
   "version": "1.0.0",
   "private": false,
   "description": "A simple React Native container component to add drag and drop functionalities to your code.",
   "source": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "react-native start",
     "test": "jest",
@@ -17,10 +18,21 @@
   ],
   "author": "GiacconiDev",
   "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "babel-jest": "^29.7.0",
     "react": "18.2.0",
     "react-native": "0.76.6",
+    "react-native-feather": "^1.1.2",
+    "react-native-reanimated": "^3.17.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-native": "^0.76.6",
     "react-native-feather": "^1.1.2",
     "react-native-reanimated": "^3.17.2"
   },
