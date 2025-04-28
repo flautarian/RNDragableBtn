@@ -1,7 +1,9 @@
 {
-  "name": "example-react-native",
+  "name": "react-native-dragable-container",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "description": "A simple React Native container component to add drag and drop functionalities to your code.",
+  "source": "src/index.js",
   "scripts": {
     "start": "react-native start",
     "test": "jest",
