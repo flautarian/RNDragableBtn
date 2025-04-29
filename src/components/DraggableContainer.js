@@ -16,7 +16,10 @@ export const DraggableContainer = (
     rotation,
     resizeMode,
     index,
-    selected,
+    selected = false,
+    draggable = true,
+    rotable = true,
+    resizable = true,
     onSelect,
     onDelete,
     children
@@ -349,24 +352,24 @@ export const DraggableContainer = (
         {
           selected &&
           <View style={[{ visibility: selected ? 'visible' : 'hidden', opacity: selected ? 1 : 0 }, styles.buttonsContainer, buttonsAbove && styles.buttonsAbove]}>
-            <View {...rotateViewpanResponder.panHandlers} style={[{ disabled: !selected, width: buttonsSize, height: buttonsSize }, styles.button, styles.rotateButton]}>
+            <View {...(isDevelopment ? { testID: "rotateButton" } : {})} {...rotateViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (!!rotable ? 'visible' : 'hidden'), width: buttonsSize, height: buttonsSize }, styles.button]}>
               <RotateCcw stroke="black" width={buttonsSize / 2} height={buttonsSize / 2} />
             </View>
-            <View {...dragViewpanResponder.panHandlers} style={[{ disabled: !selected, width: buttonsSize, height: buttonsSize }, styles.button, styles.moveButton]}>
+            <View {...(isDevelopment ? { testID: "moveButton" } : {})} {...dragViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (draggable ? 'visible' : 'hidden'), width: buttonsSize, height: buttonsSize }, styles.button]}>
               <Move stroke="black" width={buttonsSize / 2} height={buttonsSize / 2} />
             </View>
-            <Pressable {...(isDevelopment ? { testID: "deleteButton" } : {})} onPress={onDelete} style={[{ disabled: !selected, width: buttonsSize, height: buttonsSize }, styles.button, styles.deleteButton]}>
+            <Pressable {...(isDevelopment ? { testID: "deleteButton" } : {})} onPress={onDelete} style={[{ disabled: !selected, visibility: (!!onDelete ? 'visible' : 'hidden'), width: buttonsSize, height: buttonsSize }, styles.button]}>
               <Trash2 stroke="black" width={buttonsSize / 2} height={buttonsSize / 2} />
             </Pressable>
           </View>
         }
         {/* Resize 4 squares buttons */}
-        {selected && resizeMode === FOUR_SQUARES && <View {...resizeXFinalViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: selected ? 'visible' : 'hidden', opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.leftHandle]} />}
-        {selected && resizeMode === FOUR_SQUARES && <View {...resizeYViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: selected ? 'visible' : 'hidden', opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.bottomHandle]} />}
-        {selected && resizeMode === FOUR_SQUARES && <View {...resizeXViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: selected ? 'visible' : 'hidden', opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.rightHandle]} />}
-        {selected && resizeMode === FOUR_SQUARES && <View {...resizeYFinalViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: selected ? 'visible' : 'hidden', opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.topHandle]} />}
+        {selected && resizeMode === FOUR_SQUARES && <View {...(isDevelopment ? { testID: "resizableButton-xf-square" } : {})} {...resizeXFinalViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (selected && resizable ? 'visible' : 'hidden'), opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.leftHandle]} />}
+        {selected && resizeMode === FOUR_SQUARES && <View {...(isDevelopment ? { testID: "resizableButton-y-square" } : {})} {...resizeYViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (selected && resizable ? 'visible' : 'hidden'), opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.bottomHandle]} />}
+        {selected && resizeMode === FOUR_SQUARES && <View {...(isDevelopment ? { testID: "resizableButton-x-square" } : {})} {...resizeXViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (selected && resizable ? 'visible' : 'hidden'), opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.rightHandle]} />}
+        {selected && resizeMode === FOUR_SQUARES && <View {...(isDevelopment ? { testID: "resizableButton-yf-square" } : {})} {...resizeYFinalViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (selected && resizable ? 'visible' : 'hidden'), opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.topHandle]} />}
         {/* Resize 1 square button */}
-        {selected && resizeMode === ONE_SQUARE && <View {...resizeXYFinalViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: selected ? 'visible' : 'hidden', opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.botRightHandle]} />}
+        {selected && resizeMode === ONE_SQUARE && <View {...(isDevelopment ? { testID: "resizableButton-1-square" } : {})} {...resizeXYFinalViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (selected && resizable ? 'visible' : 'hidden'), opacity: selected ? 1 : 0, width: buttonsSize, height: buttonsSize }, styles.resizeHandle, styles.botRightHandle]} />}
       </Pressable>
     </Animated.View>
   );
