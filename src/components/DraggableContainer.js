@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState, useMemo } from 'react';
 import { View, PanResponder, Pressable, Dimensions, StyleSheet } from 'react-native';
 import { Move, RotateCcw, Trash2 } from "react-native-feather";
 import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
-const DraggableContainer = (
+export const DraggableContainer = (
   {
     x,
     y,
@@ -21,6 +21,7 @@ const DraggableContainer = (
     onDelete,
     children
   }) => {
+
 
   const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -370,5 +371,3 @@ const DraggableContainer = (
     </Animated.View>
   );
 };
-
-export default DraggableContainer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import DraggableContainer from '../src/components/DraggableContainer';
+import { DraggableContainer } from '../src/components/DraggableContainer';
 import { Text } from 'react-native';
 
 // Mock the onSelect and onDelete functions
