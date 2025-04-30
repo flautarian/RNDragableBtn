@@ -1,6 +1,6 @@
 {
   "name": "react-native-draggable-container",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "private": false,
   "description": "A simple React Native container component to add drag and drop functionalities to your code.",
   "source": "src/index.js",
@@ -9,6 +9,10 @@
     "start": "react-native start",
     "test": "jest",
     "build": "babel src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flautarian/RNDraggableBtn.git"
   },
   "keywords": [
     "react-native",
@@ -26,8 +30,7 @@
     "README.md",
     "LICENSE"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-jest": "^29.7.0",
     "react": "18.2.0",
