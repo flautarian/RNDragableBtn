@@ -22,6 +22,12 @@ export const DraggableContainer = (
     resizable = true,
     onSelect,
     onDelete,
+    onDragStart,
+    onDragRelease,
+    onRotateStart,
+    onRotateRelease,
+    onResizeStart,
+    onResizeRelease,
     children
   }) => {
 
@@ -92,7 +98,13 @@ export const DraggableContainer = (
   const dragViewpanResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onPanResponderStart: (_, gestureState) => {
+        if(!!onDragStart) onDragStart(gestureState);
+      },
       onPanResponderMove: (_, gestureState) => handleDrag(gestureState),
+      onPanResponderRelease: (_, gestureState) => {
+        if(!!onDragRelease) onDragRelease(gestureState);
+      },
     })
   ).current;
 
@@ -114,8 +126,12 @@ export const DraggableContainer = (
   const resizeYViewpanResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onPanResponderStart: (_, gestureState) => {
+        if(onResizeStart) onResizeStart(gestureState);
+      },
       onPanResponderMove: (_, gestureState) => handleResizeY(gestureState, false),
       onPanResponderRelease: (_, gestureState) => {
+        if(onResizeRelease) onResizeRelease(gestureState);
         initHeight.value = contentView.height.value;
         setLayoutKey((prevKey) => prevKey + 1);
       },
@@ -127,8 +143,12 @@ export const DraggableContainer = (
   const resizeYFinalViewpanResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onPanResponderStart: (_, gestureState) => {
+        if(onResizeStart) onResizeStart(gestureState);
+      },
       onPanResponderMove: (_, gestureState) => handleResizeY(gestureState, true),
       onPanResponderRelease: (_, gestureState) => {
+        if(onResizeRelease) onResizeRelease(gestureState);
         initHeight.value = contentView.height.value;
         setLayoutKey((prevKey) => prevKey + 1);
       },
@@ -152,8 +172,12 @@ export const DraggableContainer = (
   const resizeXViewpanResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onPanResponderStart: (_, gestureState) => {
+        if(onResizeStart) onResizeStart(gestureState);
+      },
       onPanResponderMove: (_, gestureState) => handleResizeX(gestureState, false),
       onPanResponderRelease: (_, gestureState) => {
+        if(onResizeRelease) onResizeRelease(gestureState);
         initWidth.value = contentView.width.value;
         setLayoutKey((prevKey) => prevKey + 1);
       },
@@ -163,8 +187,12 @@ export const DraggableContainer = (
   const resizeXFinalViewpanResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onPanResponderStart: (_, gestureState) => {
+        if(onResizeStart) onResizeStart(gestureState);
+      },
       onPanResponderMove: (_, gestureState) => handleResizeX(gestureState, true),
       onPanResponderRelease: (_, gestureState) => {
+        if(onResizeRelease) onResizeRelease(gestureState);
         initWidth.value = contentView.width.value;
         setLayoutKey((prevKey) => prevKey + 1);
       },
@@ -198,8 +226,12 @@ export const DraggableContainer = (
   const rotateViewpanResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
+      onPanResponderStart: (_, gestureState) => {
+        if(onRotateStart) onRotateStart(gestureState);
+      },
       onPanResponderMove: (_, gestureState) => onRotate(gestureState),
       onPanResponderRelease: (_, gestureState) => {
+        if(onRotateRelease) onRotateRelease(gestureState);
         initRotation.value = contentView.rotation.value;
       },
     })
