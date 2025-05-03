@@ -1,16 +1,16 @@
-# DraggableContainer
+# 🎨 DraggableContainer
 
 `DraggableContainer` is a versatile React Native component that allows you to create draggable, resizable, and rotatable containers. It's built using `react-native-reanimated` for smooth animations and `react-native-feather` for icons. This component is perfect for applications that require dynamic and interactive UI elements.
 
-## Features
+## ✨Features
 
-- **Drag and Drop**: Easily move the container around the screen.
-- **Resize**: Adjust the width and height of the container using handles.
-- **Rotate**: Rotate the container to any angle.
-- **Customizable**: Highly customizable with various props to control behavior and appearance.
-- **Callbacks**: Provides callbacks for various events like drag start, drag end, resize start, resize end, etc.
+- **Drag and Drop**: 👆 Easily move the container around the screen.
+- **Resize**: ↔️ Adjust the width and height of the container using handles.
+- **Rotate**: 🔄 Rotate the container to any angle.
+- **Customizable**: 🎨 Highly customizable with various props to control behavior and appearance.
+- **Callbacks**: 🔔 Provides callbacks for various events like drag start, drag end, resize start, resize end, etc.
 
-## Installation
+## 🛠️Installation
 
 To use the `DraggableContainer` component, you need to install the following dependencies:
 
@@ -19,7 +19,7 @@ To use the `DraggableContainer` component, you need to install the following dep
 
 Make sure you have `react-native-gesture-handler` installed and configured, as it is a peer dependency of `react-native-reanimated`.
 
-## Props
+## ⚙️Props
 
 The `DraggableContainer` component accepts the following props:
 
@@ -50,7 +50,7 @@ The `DraggableContainer` component accepts the following props:
 | `onResizeRelease`  | `function`| `-`         | Callback when resizing ends.                                              |
 | `children`         | `node`    | `-`         | Child components to be rendered inside the container.                      |
 
-## Example Usage
+## 🌟Example Usage
 
 Here's an example of how to use the `DraggableContainer` component:
 
@@ -61,14 +61,6 @@ import { DraggableContainer } from './path-to-your-component'; // Adjust the pat
 
 const App = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
-
-  const handleSelect = (index) => {
-    setSelectedIndex(index);
-  };
-
-  const handleDelete = (index) => {
-    // Implement your delete logic here
-  };
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -116,7 +108,6 @@ const App = () => {
         }
       >
         <Text class={styles.text}>Houdy! I can move</Text>
-
       </DraggableContainer>
     </View>
   );
@@ -125,20 +116,22 @@ const App = () => {
 export default App;
 ```
 
-## 4-squares mode
-
-[4-squares-demo.webm](https://github.com/user-attachments/assets/687ee582-c747-4fb5-aaa3-a8b2782eb462)
-
-## 1-square mode
-
-[1-square.webm](https://github.com/user-attachments/assets/aa2822e0-d18d-4726-95ee-914cea914f82)
+### 4-squares mode
+<p align="center">
+<img src="https://github.com/user-attachments/assets/ba9e5bc6-f895-414c-8f15-e2101e2531f0" width=400px height=400px center>
+</p>
 
 
-## Contributing
+### 1-square mode
+<p align="center">
+<img src="https://github.com/user-attachments/assets/35e3cb61-d868-4997-9c91-0c45f2ce89b6" width=400px height=400px center>
+</p>
 
-Contributions are welcome! Please open an issue or submit a pull request.
+## 🤝Contributing
 
-## License
+Contributions are welcome! Please open an issue or submit a pull request, and let a 🌟 if you liked my work! 🤗
+
+## 📜License
 
 This project is licensed under the MIT License.
 
