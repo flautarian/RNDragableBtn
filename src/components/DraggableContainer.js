@@ -390,7 +390,7 @@ export const DraggableContainer = (
             <View {...(isDevelopment ? { testID: "moveButton" } : {})} {...dragViewpanResponder.panHandlers} style={[{ disabled: !selected, visibility: (draggable ? 'visible' : 'hidden'), width: buttonsSize, height: buttonsSize }, styles.button]}>
               <Move stroke="black" width={buttonsSize / 2} height={buttonsSize / 2} />
             </View>
-            <Pressable {...(isDevelopment ? { testID: "deleteButton" } : {})} onPress={onDelete} style={[{ disabled: !selected, visibility: (!!onDelete ? 'visible' : 'hidden'), width: buttonsSize, height: buttonsSize }, styles.button]}>
+            <Pressable {...(isDevelopment ? { testID: "deleteButton" } : {})} onPress={() => onDelete(index)} style={[{ disabled: !selected, visibility: (!!onDelete ? 'visible' : 'hidden'), width: buttonsSize, height: buttonsSize }, styles.button]}>
               <Trash2 stroke="black" width={buttonsSize / 2} height={buttonsSize / 2} />
             </Pressable>
           </View>
